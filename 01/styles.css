@@ -51,3 +51,8 @@ img {
     max-width: 30px;
     max-height: 30px;
 }
+
+#logo {
+    max-width: 150px;
+    max-height: 150px;
+}
