@@ -1,10 +1,15 @@
-* {
+body {
     background-color: #020202;
     color: white;
     font-family: 'Courier New', Courier, monospace;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 600px;
+}
+
+a {
+    color: white;
+    color
 }
 
 section {
@@ -52,7 +57,20 @@ img {
     max-height: 30px;
 }
 
+figure {
+    max-width: 200px;
+    border: 2px dotted white;
+    margin-left: 0px;
+}
+
+figcaption {
+    font-size: x-small;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
 #logo {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
 }
