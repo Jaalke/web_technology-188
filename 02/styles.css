@@ -63,6 +63,10 @@ table {
     width: 100%;
 }
 
+th {
+    cursor: pointer;
+}
+
 th, td {
     border: 0.5px double white;
     text-align: left;
@@ -94,6 +98,7 @@ footer {
 }
 
 img {
+    margin-top: 10px;
     max-width: 30px;
     max-height: 30px;
 }

@@ -35,8 +35,9 @@ breakpoints for smaller screens.
             which we will then exchange for a device. 
         </p>
         <form action="https://wt.ops.labs.vu.nl/api22/6fa3add2" method="post">
-        <table>
+        <table id="productTable">
             <caption>bestsellers:</caption>
+            <thead>
             <tr>
                 <th>brand</th>
                 <th>model</th>
@@ -44,28 +45,9 @@ breakpoints for smaller screens.
                 <th>screensize</th>
                 <th>image</th>
             </tr>
-            <tr>
-                <td>Apple</td>
-                <td>Iphone 12 Pro</td>
-                <td>iOS</td>
-                <td>6.06</td>
-                <td><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/IPhone_12_Pro_Gold.svg/800px-IPhone_12_Pro_Gold.svg.png">image</a></td>
-            </tr>
-            <tr>
-                <td>Apple</td>
-                <td>Iphone X</td>
-                <td>iOS</td>
-                <td>5.85</td>
-                <td><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/IPhone_X_vector.svg/800px-IPhone_X_vector.svg.png">image</a></td>
-            </tr>
-            <tr>
-                <td>Samsung</td>
-                <td>Galaxy Note 20</td>
-                <td>Android</td>
-                <td>6.7</td>
-                <td><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Samsung_Galaxy_Note_20_front.png/800px-Samsung_Galaxy_Note_20_front.png">image</a></td>
-            </tr>
-            <tr>
+            </thead>
+            <tbody>
+            <tr class="exceptRow">
                 <td><input type="text" id="brand" name="brand" required></td>
                 <td><input type="text" id="model" name="model" value=""></td>
                 <td><select id="os" name="os">
@@ -77,6 +59,7 @@ breakpoints for smaller screens.
                 <td><input type="number" id="screensize" name="screensize"></td>
                 <td><input type="url" id="image" name="image"></td>
             </tr>
+            </tbody>
         </table>
         <input id="submit" type="submit" value="submit">
         </form>
@@ -144,11 +127,11 @@ breakpoints for smaller screens.
             <caption>forms of contact for select employees:</caption>
             <thead>
             <tr>
-                <th class="header">name</th>
-                <th class="header">mobile</th>
-                <th class="header">messenger crow</th>
-                <th class="header">e-mail</th>
-                <th class="header">likelihood of a response</th>
+                <th>name</th>
+                <th>mobile</th>
+                <th>messenger crow</th>
+                <th>e-mail</th>
+                <th>likelihood of a response</th>
             </tr>
             </thead>
             <tbody>
@@ -173,14 +156,14 @@ breakpoints for smaller screens.
                 <td>ljbsijbhop849o@soijr489oak.aio</td>
                 <td>5%</td>
             </tr>
-            <tr id="testOne">
+            <tr>
                 <td>christopher</td>
                 <td>+123 456 781</td>
                 <td>downwards</td>
                 <td>theotherchrsitopherisanimposter@hotmail.com</td>
                 <td>100%</td>
             </tr>
-            <tr id="testTwo">
+            <tr>
                 <td>christopher</td>
                 <td>+00000000000.1</td>
                 <td>inwards</td>
@@ -192,10 +175,8 @@ breakpoints for smaller screens.
         </section>
 
         <footer>
-        <br>
             &#169; Innocuous Front Solutions <abbr title="Limited Liability Company">LCC</abbr>. This website is entirely genuine, and is not known
-            to the state of California to be a flimsy facade.
-            <br><br>
+            to the state of California to be a flimsy facade.<br>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Seal_of_the_Central_Intelligence_Agency.svg/1020px-Seal_of_the_Central_Intelligence_Agency.svg.png" alt="CIA logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Seal_of_the_U.S._National_Security_Agency.svg/1200px-Seal_of_the_U.S._National_Security_Agency.svg.png" alt="National Security Agency logo">
             <img src="http://assets.stickpng.com/images/5847f1a5cef1014c0b5e485c.png" alt="Homeland Security logo">
