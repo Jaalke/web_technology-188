@@ -16,17 +16,14 @@ function inputRowToBottom (table) {
 
 // sorting function using the bubble sort algorithm:
 
-function sortTable(table, columnIndex, reversed) {
+function sortTable(table, columnIndex, reversed, recursive = true) {
+
+    // TODO: sorting crashes if all the values are the same - FIX!
+
     let rows = table.children("tbody").children();
     let isSorted = false;
     let numberOfChanges = 0;
     let d = 1;
-    let inputRow = NaN;
-
-    // if (rows.hasClass("exceptRow")) {
-    //     alert("reposition triggered");
-    //     inputRow = rows.filter(".exceptRow").detach();
-    // }
 
     if (reversed) {
         d = -1;
@@ -53,8 +50,8 @@ function sortTable(table, columnIndex, reversed) {
     // the code below automatically sorts in the opposite direction
     // if the table is already sorted
 
-    if (numberOfChanges == 0) {
-        sortTable(table, columnIndex, !reversed);
+    if (numberOfChanges == 0 && recursive) {
+        sortTable(table, columnIndex, !reversed, false);
     }
 
     return;
