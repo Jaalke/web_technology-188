@@ -11,14 +11,12 @@ function swapRows(rowOne, rowTwo) {
 
 function inputRowToBottom (table) {
     let body = table.children("tbody");
-    body.after(body.children(".exceptRow"));
+    body.after(body.children(".inputRow"));
 }
 
 // sorting function using the bubble sort algorithm:
 
 function sortTable(table, columnIndex, reversed, recursive = true) {
-
-    // TODO: sorting crashes if all the values are the same - FIX!
 
     let rows = table.children("tbody").children();
     let isSorted = false;
@@ -86,6 +84,10 @@ $("th").click(
     function(){
         sortTable($(this).parents("table"), $(this).index(), false);
         inputRowToBottom($(this).parents("table"));
+        $(this).siblings().css("background-color", "black");
+        $(this).siblings().css("color", "white");
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
     }
 );
 
@@ -97,3 +99,6 @@ $("#productTable").ready(
         });
     }
 );
+
+// <b id="sortingIndicator">&#8681;</b> this could be the sorting indicator
+// idk
