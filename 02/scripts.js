@@ -1,17 +1,9 @@
-// helper function for swapping rows in a table, used to sort:
+// helper function for swapping rows in a table:
 
 function swapRows(rowOne, rowTwo) {
     rowOne.replaceWith(rowTwo);
     rowTwo.after(rowOne);
     return;
-}
-
-// helper function for restoring the input row to the bottom of the table:
-// not exactly elegant but does the job ¯\_(ツ)_/¯
-
-function inputRowToBottom (table) {
-    let body = table.children("tbody");
-    body.after(body.children(".inputRow"));
 }
 
 // sorting function using the bubble sort algorithm:
@@ -31,7 +23,7 @@ function sortTable(table, columnIndex, reversed, recursive = true) {
         isSorted = true;
 
         for (let i=0; i<rows.length - 1; i++) {
-            rows = table.children("tbody").children();
+            rows = table.children("tbody").children().not(".inputRow");
             let firstRow = rows.eq(i);
             let secondRow = rows.eq(i + 1);
             let firstVal = firstRow.children().eq(columnIndex).text();
@@ -55,13 +47,15 @@ function sortTable(table, columnIndex, reversed, recursive = true) {
     return;
 }
 
-// refresh function, inserts ALL data from the server into the product table:
+// table content refresh, WIPES the table and inserts ALL data from the server:
 
-function refreshTable(table, data) {
+function refreshProductTable(table, data) {
+
+    table.children("tbody").children().not(".inputRow").remove();
 
     for (i in data) {
         let lastRow = table.children("tbody").children();
-        lastRow = lastRow.eq(lastRow.length - 2)
+        lastRow = lastRow.eq(lastRow.length - 1);
 
         let insert = "";
         insert += "<tr>"
@@ -80,10 +74,17 @@ function refreshTable(table, data) {
 
 // listeners:
 
+$("#productTable").ready( 
+    function(){
+        $.get("https://wt.ops.labs.vu.nl/api22/6fa3add2", function(download){
+            refreshProductTable($("#productTable"), download);
+        });
+    }
+);
+
 $("th").click(
     function(){
         sortTable($(this).parents("table"), $(this).index(), false);
-        inputRowToBottom($(this).parents("table"));
         $(this).siblings().css("background-color", "black");
         $(this).siblings().css("color", "white");
         $(this).css("background-color", "white");
@@ -91,14 +92,17 @@ $("th").click(
     }
 );
 
-$("#productTable").ready( 
-    function(){
-        $.get("https://wt.ops.labs.vu.nl/api22/6fa3add2", function(data, status){
-            // alert("Data: " + data + "\nStatus: " + status);
-            refreshTable($("#productTable"), data);
+$("form").submit(
+    function(event){
+
+        event.preventDefault();
+        let form = $(this);
+        let upload = form.serialize();
+
+        $.post("https://wt.ops.labs.vu.nl/api22/6fa3add2", upload, function() {
+            $.get("https://wt.ops.labs.vu.nl/api22/6fa3add2", function(download){
+                refreshProductTable($("#productTable"), download);
+            });
         });
     }
 );
-
-// <b id="sortingIndicator">&#8681;</b> this could be the sorting indicator
-// idk
