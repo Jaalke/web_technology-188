@@ -92,6 +92,16 @@ $("th").click(
     }
 );
 
+$("#reset").click(
+    function(){
+        $.get("https://wt.ops.labs.vu.nl/api22/6fa3add2/reset");
+
+        $.get("https://wt.ops.labs.vu.nl/api22/6fa3add2", function(download){
+            refreshProductTable($("#productTable"), download);
+        });
+    }
+);
+
 $("form").submit(
     function(event){
 

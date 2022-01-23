@@ -13,7 +13,7 @@ body {
 }
 
 :visited {
-    color: #f73f1b;
+    color: rgba(228, 18, 18, 0.87);
 }
 
 a:hover {
@@ -76,7 +76,7 @@ th, td {
     cursor: pointer;
 }
 
-input, select{
+input, select {
     display: block;
     border-style: inset;
     border-color: #aaaaaa;
@@ -87,9 +87,25 @@ input, select{
 } 
 
 #submit {
-    display: block;
-    width: 50%;
     margin: auto;
+    margin-top: 15px;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    display: block;
+    width: 20%;
+}
+
+button {
+    margin: auto;
+    margin-top: 5px;
+    display: block;
+    border-style: solid;
+    border-color: rgba(228, 18, 18, 0.87);
+    border-width: 3px;
+    background-color: #ffffff;
+    color: rgba(228, 18, 18, 0.87);
+    width: 20%;
 }
 
 footer {
@@ -156,7 +172,6 @@ pre {
     figure {
         float: none;
         margin: auto;
-        
     }
 
     #logo {
