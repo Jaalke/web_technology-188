@@ -63,7 +63,7 @@ function refreshProductTable(table, data) {
         insert += "<td>" + data[i].model + "</td>";
         insert += "<td>" + data[i].os + "</td>";
         insert += "<td>" + data[i].screensize + "</td>";
-        insert += "<td><a href=\"" + data[i].image + "\">link</a></td>";
+        insert += "<td><a href=\"" + data[i].image + "\" target=\"blank\">link</a></td>";
         insert += "</tr>";
 
         lastRow.before(insert);
