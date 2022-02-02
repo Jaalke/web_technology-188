@@ -107,7 +107,7 @@ $("form").submit(
 
         event.preventDefault();
         let form = $(this);
-        let upload = form.serialize();
+        let upload = JSON.stringify(form)
 
         $.post("https://wt.ops.labs.vu.nl/api22/6fa3add2", upload, function() {
             $.get("https://wt.ops.labs.vu.nl/api22/6fa3add2", function(download){

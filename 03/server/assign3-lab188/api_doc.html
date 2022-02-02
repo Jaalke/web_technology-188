@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <h1>welcome to the api of the server that holds the information about phones</h1>
+
+        <h2>in broad strokes</h2>
+        <p>this api is used to store, retrieve and modify the information about phones stored on a server.
+            the server is run on the Node.js environment and stores data using sqlite. the 
+            server listens on <b><a href="http://localhost:3000/">http://localhost:3000</a></b>. 
+            all request urls are to be preceded by that address.
+        </p>
+        <h2>types of requests processed by the api</h2>
+        <p>bellow is a list of types of requests processed by the server. these are general
+            descriptions which apply to all requests of a given type. the specific request urls
+            are discussed further down.
+        </p>
+        <table>
+            <col id="reqTypeColumn">
+            <thead>
+                <tr>
+                    <th>request</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>GET</b></td>
+                    <td>this request will return a requested object in JSON form. GET is a safe
+                        request, meaning it will not alter the information stored on database in
+                        any way, regardless of use. it is also idempotent, meaning it will result 
+                        in the same outcome when called multiple times on the same resource.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>POST</b></td>
+                    <td>this request will create an entry in the database using the provided
+                        data.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>PUT</b></td>
+                    <td>this request will replace an entry in the database with the provided data.
+                        unlike POST, this request can be destructive to the information already 
+                        stored by the database. PUT is an idempotent request, meaning it will result 
+                        in the same outcome when called multiple times on the same resource.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>DELETE</b></td>
+                    <td>this request will remove an entry from the database. DELETE is an idempotent request,
+                        meaning it will result in the same outcome when called multiple times on the same resource.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>data formatting</h2>
+        <p>unless specified otherwise, all data to be placed in or retrieved from the database<b> is 
+            in JSON format.</b>
+        </p>
+        <p>a single entry in the database contains the information associated with a single phone. when this documentation
+            refers to a phone, this means the JSON string containing (some) of the values of this entry.
+            each entry has the following fields:
+        </p>
+        <ul>
+            <li><b>id:</b> [integer] the primary key in the database, automatically generated for each entry</li>
+            <li><b>brand:</b> [string, max length 100]</li>
+            <li><b>model:</b> [string, max length 100]</li>
+            <li><b>os:</b> [string, max length 10]</li>
+            <li><b>image:</b> [string, max length 254] a url linking to an image of the phone</li>
+            <li><b>screensize:</b> [integer]</li>
+        </ul>
+
+        <h2>request urls</h2>
+        <p>bellow you will find the exhaustive list of possible request urls, along with the type of request,
+            method of use and results of the request.
+        </p>
+        <table>
+            <col id="reqUrlColumn">
+            <col id="reqTypeColumn">
+            <thead>
+                <tr>
+                    <th>url</th>
+                    <th>type</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>/retrieve_all_phones</b></td>
+                    <td><b>GET</b></td>
+                    <td>this request will return all phones stored in the database, including every
+                        field for each entry.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>/create_phone</b></td>
+                    <td><b>POST</b></td>
+                    <td>this request will create an entry in the phones database, using the phone
+                        information provided in the body of the request. the information must be complete,
+                        ie. every field except for id must be provided with the correct type and size.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>/retrieve_phone/id</b></td>
+                    <td><b>GET</b></td>
+                    <td>this request will return a single phone with the matching id stored in the database.
+                        the id is provided in the request url (ex. /retrieve_phone/1523). the id must be
+                        a valid value found in the database.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>/update_phone/id</b></td>
+                    <td><b>PUT</b></td>
+                    <td>this request will update the phone record of the given id with the information provided
+                        in the body. the id is provided in the request url (ex. /update_phone/4453). only the 
+                        fields provided in the body are changed. so, for instance, if the JSON body only contains
+                        the values of fields 'brand' and 'name', only those two fields will be changed for the 
+                        given phone record.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>/delete_phone/id</b></td>
+                    <td><b>DELETE</b></td>
+                    <td>this request will delete a single phone with the matching id stored in the database.
+                        the id is provided in the request url (ex. /delete_phone/6234). the id must be
+                        a valid value found in the database. this action cannot be undone.
+                    </td>
+                </tr>
+                <tr>
+
+                    <td><b>/wipe_table</b></td>
+                    <td><b>DELETE</b></td>
+                    <td>this request will delete <b>all the information stored in the phone database.</b>
+                        the table storing the phone data will remain in place and can be used to store 
+                        information in the future. this action cannot be undone.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>The above api documentation is provided to you by a subcontractor who unfortunately cannot
+            muster any sense of humor before exam week. We apologize for the inconvenience.<br>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/FCC_Seal_2020.svg/1280px-FCC_Seal_2020.svg.png" alt="FCC Seal">
+        </footer>
+    </body>
+</html>

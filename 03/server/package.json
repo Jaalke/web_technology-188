@@ -1,0 +1,15 @@
+{
+  "name": "phone_server",
+  "version": "1.0.0",
+  "description": "a simple http REST API providing functionality on a database storing mobile phone information",
+  "main": "server.js",
+  "scripts": {
+    "test": "http://localhost:3000/hello",
+    "start": "node server.js"
+  },
+  "author": "J. F. Adamski, L. Sikulowa",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
+}
