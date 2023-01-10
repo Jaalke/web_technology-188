@@ -1,0 +1,162 @@
+body {
+    background-color: #020202;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    list-style-type: circle;
+}
+
+:link {
+    color: white;
+}
+
+:visited {
+    color: #f73f1b;
+}
+
+a:hover {
+    border: 0.2px dashed white;
+}
+
+a:active {
+    border: 1px double white;
+}
+
+a:focus {
+    border: 0.2px dashed yellow;
+}
+
+section {
+    margin: auto;
+    font-size: small;
+}
+
+nav {
+    font-size: small;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+h2 {
+    font-size: medium;
+}
+
+p {
+    font-size: small;
+    margin-left: 20px;
+}
+
+ul, dl {
+    margin-left: 20px;
+    list-style-type: circle;
+    list-style-position: outside;
+}
+
+table {
+    font-size: small;
+    word-break: break-all;
+    table-layout: fixed;
+    width: 100%;
+}
+
+th, td {
+    border: 0.5px double white;
+    text-align: left;
+}
+
+.header {
+    cursor: pointer;
+    color: red;
+}
+
+input, select{
+    display: block;
+    border-style: inset;
+    border-color: #aaaaaa;
+    background-color: #222222;
+    color: white;
+    max-width: 80%;
+    margin: auto;
+} 
+
+#submit {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+footer {
+    font-size: x-small;
+    margin-top: 30px;
+}
+
+img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+figure {
+    max-width: 200px;
+    border: 2px dotted white;
+    margin-left: 0px;
+    float: left;
+}
+
+figcaption {
+    font-size: x-small;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+#logo {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+/* bellow will be additionally applied when printing the page */
+
+@media print {
+    body {
+        background-image: url("https://imgur.com/a/IYCdYsJ.png");
+        background-repeat: repeat;
+        color: black;
+        width: 70%;
+    }
+
+    th, td {
+        border-color: black;
+        border-width: 1px;
+        border-style: solid;
+        border-spacing: 0.5px;
+    }
+}
+
+/* bellow is the breakpoint for smaller devices */
+
+@media only screen and (max-width: 700px) {
+    body {
+        width: 90%;
+    }
+
+    figure {
+        float: none;
+        margin: auto;
+        
+    }
+
+    #logo {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
