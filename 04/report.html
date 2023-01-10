@@ -5,21 +5,115 @@
     </head>
     <body>
         <h1>self-evaluation report</h1>
-        <p>2022-02-02 &bull; group 188 &bull; </p>
+        <p>2022-02-02 &bull; group 188 &bull; J. F. Adamski, L. Sikulowa</p>
 
         <h2>introduction</h2>
-        <p>introduction goes here</p>
+        <p>the webpage we designed over the course of this course was, by necessity, not highly complex.
+        there are numerous types of media and content that we have not included whatsoever, that are otherwise quite
+        commonplace in web design. this makes the task of creating a usable, accessible document that much
+        easier, since not that many special considerations and shortstops have to be implemented. however, 
+        this does not absolve us from the duty of thoughtfulness. over the course of this report, we can 
+        clearly see that making a thing that is to be of use to others requires a certain degree of empathy 
+        and ability to step outside our own assumptions and defaults. our attempt to fix the missteps we have identified 
+        are limited both by time constraints, as well as our ability and knowledge. we believe that even as we were 
+        not able to make up for every inadequacy, we have at the very least identified all the major ones, and proposed 
+        some mechanism for how they might be bridged.
+        </p>
 
         <h2>accessibility report</h2>
-        <p>accessibility report goes here</p>
+        <p>we have assessed our webpage according to the 
+            <a href="https://www.w3.org/TR/WCAG20/" target="blank">Web Content Accessibility Guidelines (WCAG) 2.0.</a>
+             this assessment was limited to a select number of principles, all of which we discuss below:
+        </p>
+        <ul>
+            <li><b>1 perceivable:</b>
+                <ul>
+                    <li><b>1.1 text alternatives:</b> a large portion of the content described in this guideline is 
+                    absent from our page. there is no time based or animated media, no test elements and 
+                    no elements of the page can be said to be providing a specific sensory experience. with this in 
+                    mind, the only issue of concern is whether all graphical media has a text base alternative. there
+                    are four images on the page, and all of them provide an text alternative via the 'alt' attribute. 
+                    while not extensive, these alternatives are descriptive of the content. with this in mind, 
+                    <b>we conclude that we have met the A success criteria level requirements.</b></li>
+                    <li><b>1.3 adaptable:</b> majority of our pages content is text based. sections are clearly identified 
+                    with headers. tables also contain headers, which are explicitly coded as such. unordered and ordered 
+                    lists are used in the correct context, creating meaningful sequences. since tables can be ordered, they 
+                    cannot be understood to be meaningful sequences. in terms of sensory characteristic, we are 
+                    unfortunately falling short. the reset button for our table is clearly delineated as such with the 
+                    use of color, however, the rest of the page does not use color, size or shape to convey meaning in 
+                    a satisfactory degree. <b>we conclude that we have not met the A success criteria level requirements.</b>
+                    </li>
+                    <li><b>1.4 distinguishable:</b> with this guideline, we do not have that much to describe. since 
+                    our page does not contain any audio elements, the primary matter is the distinction between background 
+                    and foreground, as well as the use of readable type. we have chosen a plain black background with a 
+                    white font for stylistic reasons, but it does provide excellent contrast while limiting eye strain. 
+                    and while monospace fonts are not designed solely for readability, they are not particularly difficult 
+                    to perceive. <b>we conclude that we have met the A success criteria level requirements.</b></li>
+                </ul>
+            <li><b>2 operable:</b>
+                <ul>
+                    <li><b>2.1 keyboard accessible:</b> there is fundamentally only one area of the page where keyboard 
+                    control is of concern: the table collecting information about phones. all the fields can be accessed 
+                    using the TAB button. however, neither of the buttons can be highlighted or operated with a button.
+                    this is clearly a significant oversight. <b>we conclude that we have not met the A success criteria level requirements.</b></li>
+                    <li><b>2.4 navigable:</b> this is an extensive guideline, and we have performed with mixed success here.
+                    in certain subsections we note success: our webpage boasts a very descriptive and clear title, which 
+                    is appropriately tagged in html. again, we do have clear and descriptive headings for pretty much all 
+                    of the content displayed. however, we also fail in many regards. there are not that many links present
+                    on the page. none of the links allow the user to navigate within the document (although it must be noted that
+                    the page is quite short). additionally, one of the three external links is not very descriptive in its current form,
+                    and there is little in way of context to amend this. this is largely the fault of the humorous twist we put
+                    on our page, but it is a failing in this regard nonetheless. <b>we conclude that we have not met the A success criteria level requirements.</b></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>feedback received throughout the course</h2>
+        <p>the following are major highlighted pieces of critique and advice we have received from our TA. the lists
+            includes pieces of feedback from both assignment 1 and assignment 2.
+        </p>
+        <ul>
+            <li><b>missing CSS constructs: </b>a number of CSS constructs required by the assignment was missing. this was 
+            largely because we have not initially found organic uses for them, and failed to think of them before submission. 
+            <b>we consider this a technical complaint, since it doesn't directly affect the quality of the website or the user
+            experience.</b></li>
+            <li><b>mobile responsive design: </b>it was pointed out that our page does not fill out enough space horizontally 
+            when viewed on a mobile device. <b>this is a complaint about a negative aspect of our design that can impact user experience.</b></li>
+            <li><b>limited compatibility report: </b>our compatibility report was missing a number of crucial points, most 
+            importantly the display modes for printing and different screen sizes.<b>this was no doubt an important task and a misstep on our
+            part, however we can consider it a technical complaint since the report is not a part of the website presented to a viewer.</b>
+            </b></li>
+            <li><b>incorrect method for converting form data: </b>we have used the .serialize() method to provide data for
+            posting to the server. this does not actually result in the data being formatted as JSON, which was a requirement.
+            <b>we consider this a technical complaint, since it doesn't directly affect the quality of the website or the user
+            experience.</b></li>
+            <li><b>form correctly sorting numbers: </b>it was pointed out that the sorting script we wrote handles numbers correctly. 
+            this is quite crucial, as the sorted tables contain a variety of different, sortable types of data. <b>this is a note 
+            on a positive aspect of our design that improves usability of the website.</b>
+            </b></li>
+        </ul>
 
         <h2>improvement plan & implementation</h2>
-        <p>improvement plan & implementation go here</p>
+        <p>taking into consideration the mistakes and omissions we made, as identified by this report, we have envisioned a number 
+        of measures that could be taken to amend them. they are listed bellow. only some of them we managed to implement successfully, and 
+        they are distinguished as such.
+        </p>
+        <ul>
+            <li><b>making the submit elements fully navigable with the keyboard: </b>this improvement would be quite straightforward. 
+            essentially, we would need to make sure that the buttons can be highlighted with tab. at this point, we suspect that pressing
+            enter would result in the button being clicked, but if not, a listener can be added on the button in the JS script. during testing,
+            we have determined that the buttons can in fact be accessed by TAB in chrome, meaning this issue is likely specific to Safari. we also
+            found setting the appropriate listener to be more complicated than anticipated. <b class="failure">failure</b></li>
+            <li><b>altering the method of form submission: </b>the .serialize() method needs to be replaced in the script. this does not 
+            require any additional changes, since the server API is designed to work with JSON data in the first place. a suitable 
+            replacement would be the method JSON.stringify() available in JQuery. <b class="success">success</b></li>
+        </ul>
 
         <footer>&#169; Innocuous Front Solutions acknowledges that these assignments seem to getting more and more serious in tone. 
             In lieu of jest, here's some logos:<br>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Seal_of_the_United_States_Department_of_Health_and_Human_Services.svg/2048px-Seal_of_the_United_States_Department_of_Health_and_Human_Services.svg.png" alt="DHHS Seal">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Seal_of_the_United_States_Department_of_Labor.svg/1024px-Seal_of_the_United_States_Department_of_Labor.svg.png" alt="Department of Labor seal">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Seal_of_the_United_States_Department_of_Labor.svg/1024px-Seal_of_the_United_States_Department_of_Labor.svg.png" alt="Department of Labor Seal">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Seal_of_the_United_States_Department_of_State.svg/768px-Seal_of_the_United_States_Department_of_State.svg.png" alt="Department of State Seal">
         </footer>
     </body>
 </html>

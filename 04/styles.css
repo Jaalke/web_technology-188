@@ -153,6 +153,14 @@ pre {
     max-height: 200px;
 }
 
+.success {
+    color: green;
+}
+
+.failure {
+    color: red;
+}
+
 /* bellow will be additionally applied when printing the page */
 
 @media print {
